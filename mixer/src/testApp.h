@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "Feed.h"
+#include "Mixer.h"
 
 class testApp : public ofBaseApp{
 	public:
@@ -19,5 +20,6 @@ class testApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
   
-  Feed feed;
+//  Feed feed;
+	Mixer mixer;
 };

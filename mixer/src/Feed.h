@@ -9,8 +9,10 @@
 #pragma once
 
 #include "ofMain.h"
+#include "BaseHasPanel.h"
+#include "BaseHasCanvas.h"
 
-class Feed {
+class Feed : public BaseHasPanel, BaseHasCanvas {
 public:
   Feed();
   ~Feed();
@@ -18,13 +20,16 @@ public:
   void setup();
   void update();
   void draw();
+	void drawGui();
   
+	ofTexture& getTextureReference();
   
   float background_hue;
   void setBackgroundHueFromPoint(int x, int y);
   
-  void setBackgroundSource(ofBaseVideoDraws *bd) { background = bd; }
-  
+  void setBackgroundSource(ofBaseVideoDraws *bd);
+
+	void mousePressed(ofMouseEventArgs &args);
   
 protected:
   ofVideoGrabber grabber;
@@ -37,7 +42,11 @@ protected:
   
   ofShader chromaShader;
   ofShader backgroundShader;
-  
-  ofMesh mainContent;
-  
+    
+	ofFbo fbo;
+	
+	
+	float number_of_tiles;
+	bool dummy_bool;
+
 };

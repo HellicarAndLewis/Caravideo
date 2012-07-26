@@ -29,6 +29,62 @@
 		E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424510CC5A17004149E2 /* Cocoa.framework */; };
 		E4C2424910CC5A17004149E2 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424610CC5A17004149E2 /* IOKit.framework */; };
 		E4EB6799138ADC1D00A09F29 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
+		EE103D5915C1815D0018C2B7 /* BaseHasPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE103D5715C1815D0018C2B7 /* BaseHasPanel.cpp */; };
+		EE103D5C15C19C8A0018C2B7 /* mixer.frag in Sources */ = {isa = PBXBuildFile; fileRef = EE103D5A15C19C8A0018C2B7 /* mixer.frag */; };
+		EE103D5D15C19C8A0018C2B7 /* mixer.vert in Sources */ = {isa = PBXBuildFile; fileRef = EE103D5B15C19C8A0018C2B7 /* mixer.vert */; };
+		EE20891115C156AC0041D141 /* Mixer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE20891015C156AC0041D141 /* Mixer.cpp */; };
+		EE2089DA15C15DBE0041D141 /* ArcBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089A715C15DBE0041D141 /* ArcBall.cpp */; };
+		EE2089DB15C15DBE0041D141 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089A815C15DBE0041D141 /* Camera.cpp */; };
+		EE2089DC15C15DBE0041D141 /* EasyCam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089A915C15DBE0041D141 /* EasyCam.cpp */; };
+		EE2089DD15C15DBE0041D141 /* Axis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089AB15C15DBE0041D141 /* Axis.cpp */; };
+		EE2089DE15C15DBE0041D141 /* Box.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089AC15C15DBE0041D141 /* Box.cpp */; };
+		EE2089DF15C15DBE0041D141 /* IcoSphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089AD15C15DBE0041D141 /* IcoSphere.cpp */; };
+		EE2089E015C15DBE0041D141 /* Plane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089AE15C15DBE0041D141 /* Plane.cpp */; };
+		EE2089E115C15DBE0041D141 /* UVSphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089AF15C15DBE0041D141 /* UVSphere.cpp */; };
+		EE2089E215C15DBE0041D141 /* VertexData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089B015C15DBE0041D141 /* VertexData.cpp */; };
+		EE2089E315C15DBE0041D141 /* Noise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089B215C15DBE0041D141 /* Noise.cpp */; };
+		EE2089E415C15DBE0041D141 /* StringUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089B315C15DBE0041D141 /* StringUtil.cpp */; };
+		EE2089E515C15DBE0041D141 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089B415C15DBE0041D141 /* Utils.cpp */; };
+		EE2089E615C15DBE0041D141 /* BitmapFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089B615C15DBE0041D141 /* BitmapFont.cpp */; };
+		EE2089E715C15DBE0041D141 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089B715C15DBE0041D141 /* Image.cpp */; };
+		EE2089E815C15DBE0041D141 /* SimpleAnim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089B815C15DBE0041D141 /* SimpleAnim.cpp */; };
+		EE2089E915C15DBE0041D141 /* StereoCam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089B915C15DBE0041D141 /* StereoCam.cpp */; };
+		EE2089EA15C15DBE0041D141 /* Text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089BA15C15DBE0041D141 /* Text.cpp */; };
+		EE2089EB15C15DBE0041D141 /* TGA.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089BB15C15DBE0041D141 /* TGA.cpp */; };
+		EE2089EC15C15DBE0041D141 /* TGARecorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089BC15C15DBE0041D141 /* TGARecorder.cpp */; };
+		EE2089ED15C15DBE0041D141 /* Tween.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089BD15C15DBE0041D141 /* Tween.cpp */; };
+		EE2089EE15C15DBE0041D141 /* Tweens.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089BE15C15DBE0041D141 /* Tweens.cpp */; };
+		EE2089EF15C15DBE0041D141 /* stb_image.c in Sources */ = {isa = PBXBuildFile; fileRef = EE2089C015C15DBE0041D141 /* stb_image.c */; };
+		EE2089F015C15DBE0041D141 /* Dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089C215C15DBE0041D141 /* Dictionary.cpp */; };
+		EE2089F115C15DBE0041D141 /* DictionaryMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089C315C15DBE0041D141 /* DictionaryMap.cpp */; };
+		EE2089F215C15DBE0041D141 /* File.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089C415C15DBE0041D141 /* File.cpp */; };
+		EE2089F315C15DBE0041D141 /* INI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089C515C15DBE0041D141 /* INI.cpp */; };
+		EE2089F415C15DBE0041D141 /* IOBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089C615C15DBE0041D141 /* IOBuffer.cpp */; };
+		EE2089F515C15DBE0041D141 /* OBJ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089C715C15DBE0041D141 /* OBJ.cpp */; };
+		EE2089F615C15DBE0041D141 /* Ply.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089C815C15DBE0041D141 /* Ply.cpp */; };
+		EE2089F715C15DBE0041D141 /* ROX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089C915C15DBE0041D141 /* ROX.cpp */; };
+		EE2089F815C15DBE0041D141 /* Mat3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089CB15C15DBE0041D141 /* Mat3.cpp */; };
+		EE2089F915C15DBE0041D141 /* Mat4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089CC15C15DBE0041D141 /* Mat4.cpp */; };
+		EE2089FA15C15DBE0041D141 /* Quat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089CD15C15DBE0041D141 /* Quat.cpp */; };
+		EE2089FB15C15DBE0041D141 /* Vec2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089CE15C15DBE0041D141 /* Vec2.cpp */; };
+		EE2089FC15C15DBE0041D141 /* Vec3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089CF15C15DBE0041D141 /* Vec3.cpp */; };
+		EE2089FD15C15DBE0041D141 /* Vec4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089D015C15DBE0041D141 /* Vec4.cpp */; };
+		EE2089FE15C15DBE0041D141 /* Billboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089D215C15DBE0041D141 /* Billboard.cpp */; };
+		EE2089FF15C15DBE0041D141 /* FBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089D315C15DBE0041D141 /* FBO.cpp */; };
+		EE208A0015C15DBE0041D141 /* MatrixStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089D415C15DBE0041D141 /* MatrixStack.cpp */; };
+		EE208A0115C15DBE0041D141 /* PBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089D515C15DBE0041D141 /* PBO.cpp */; };
+		EE208A0215C15DBE0041D141 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089D615C15DBE0041D141 /* Shader.cpp */; };
+		EE208A0315C15DBE0041D141 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089D715C15DBE0041D141 /* Texture.cpp */; };
+		EE208A0415C15DBE0041D141 /* VAO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089D815C15DBE0041D141 /* VAO.cpp */; };
+		EE208A0515C15DBE0041D141 /* VBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2089D915C15DBE0041D141 /* VBO.cpp */; };
+		EE208A1E15C15DE70041D141 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE208A1615C15DE70041D141 /* Button.cpp */; };
+		EE208A1F15C15DE70041D141 /* Buttons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE208A1715C15DE70041D141 /* Buttons.cpp */; };
+		EE208A2015C15DE70041D141 /* Element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE208A1815C15DE70041D141 /* Element.cpp */; };
+		EE208A2115C15DE70041D141 /* Panel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE208A1915C15DE70041D141 /* Panel.cpp */; };
+		EE208A2215C15DE70041D141 /* Radio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE208A1A15C15DE70041D141 /* Radio.cpp */; };
+		EE208A2315C15DE70041D141 /* Slider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE208A1B15C15DE70041D141 /* Slider.cpp */; };
+		EE208A2415C15DE70041D141 /* Storage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE208A1C15C15DE70041D141 /* Storage.cpp */; };
+		EE208A2515C15DE70041D141 /* Toggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE208A1D15C15DE70041D141 /* Toggle.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +146,65 @@
 		E4C2424610CC5A17004149E2 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		EE103D5715C1815D0018C2B7 /* BaseHasPanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseHasPanel.cpp; sourceTree = "<group>"; };
+		EE103D5815C1815D0018C2B7 /* BaseHasPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseHasPanel.h; sourceTree = "<group>"; };
+		EE103D5A15C19C8A0018C2B7 /* mixer.frag */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; name = mixer.frag; path = bin/data/mixer.frag; sourceTree = "<group>"; };
+		EE103D5B15C19C8A0018C2B7 /* mixer.vert */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; name = mixer.vert; path = bin/data/mixer.vert; sourceTree = "<group>"; };
+		EE103D5F15C19F3A0018C2B7 /* BaseHasCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseHasCanvas.h; sourceTree = "<group>"; };
+		EE20891015C156AC0041D141 /* Mixer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mixer.cpp; sourceTree = "<group>"; };
+		EE20891215C156C20041D141 /* Mixer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mixer.h; sourceTree = "<group>"; };
+		EE2089A715C15DBE0041D141 /* ArcBall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArcBall.cpp; sourceTree = "<group>"; };
+		EE2089A815C15DBE0041D141 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		EE2089A915C15DBE0041D141 /* EasyCam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EasyCam.cpp; sourceTree = "<group>"; };
+		EE2089AB15C15DBE0041D141 /* Axis.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Axis.cpp; sourceTree = "<group>"; };
+		EE2089AC15C15DBE0041D141 /* Box.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Box.cpp; sourceTree = "<group>"; };
+		EE2089AD15C15DBE0041D141 /* IcoSphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IcoSphere.cpp; sourceTree = "<group>"; };
+		EE2089AE15C15DBE0041D141 /* Plane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Plane.cpp; sourceTree = "<group>"; };
+		EE2089AF15C15DBE0041D141 /* UVSphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UVSphere.cpp; sourceTree = "<group>"; };
+		EE2089B015C15DBE0041D141 /* VertexData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VertexData.cpp; sourceTree = "<group>"; };
+		EE2089B215C15DBE0041D141 /* Noise.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Noise.cpp; sourceTree = "<group>"; };
+		EE2089B315C15DBE0041D141 /* StringUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringUtil.cpp; sourceTree = "<group>"; };
+		EE2089B415C15DBE0041D141 /* Utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
+		EE2089B615C15DBE0041D141 /* BitmapFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BitmapFont.cpp; sourceTree = "<group>"; };
+		EE2089B715C15DBE0041D141 /* Image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Image.cpp; sourceTree = "<group>"; };
+		EE2089B815C15DBE0041D141 /* SimpleAnim.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleAnim.cpp; sourceTree = "<group>"; };
+		EE2089B915C15DBE0041D141 /* StereoCam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StereoCam.cpp; sourceTree = "<group>"; };
+		EE2089BA15C15DBE0041D141 /* Text.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Text.cpp; sourceTree = "<group>"; };
+		EE2089BB15C15DBE0041D141 /* TGA.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TGA.cpp; sourceTree = "<group>"; };
+		EE2089BC15C15DBE0041D141 /* TGARecorder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TGARecorder.cpp; sourceTree = "<group>"; };
+		EE2089BD15C15DBE0041D141 /* Tween.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tween.cpp; sourceTree = "<group>"; };
+		EE2089BE15C15DBE0041D141 /* Tweens.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tweens.cpp; sourceTree = "<group>"; };
+		EE2089C015C15DBE0041D141 /* stb_image.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stb_image.c; sourceTree = "<group>"; };
+		EE2089C215C15DBE0041D141 /* Dictionary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dictionary.cpp; sourceTree = "<group>"; };
+		EE2089C315C15DBE0041D141 /* DictionaryMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DictionaryMap.cpp; sourceTree = "<group>"; };
+		EE2089C415C15DBE0041D141 /* File.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = File.cpp; sourceTree = "<group>"; };
+		EE2089C515C15DBE0041D141 /* INI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = INI.cpp; sourceTree = "<group>"; };
+		EE2089C615C15DBE0041D141 /* IOBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IOBuffer.cpp; sourceTree = "<group>"; };
+		EE2089C715C15DBE0041D141 /* OBJ.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OBJ.cpp; sourceTree = "<group>"; };
+		EE2089C815C15DBE0041D141 /* Ply.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ply.cpp; sourceTree = "<group>"; };
+		EE2089C915C15DBE0041D141 /* ROX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ROX.cpp; sourceTree = "<group>"; };
+		EE2089CB15C15DBE0041D141 /* Mat3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mat3.cpp; sourceTree = "<group>"; };
+		EE2089CC15C15DBE0041D141 /* Mat4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mat4.cpp; sourceTree = "<group>"; };
+		EE2089CD15C15DBE0041D141 /* Quat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Quat.cpp; sourceTree = "<group>"; };
+		EE2089CE15C15DBE0041D141 /* Vec2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vec2.cpp; sourceTree = "<group>"; };
+		EE2089CF15C15DBE0041D141 /* Vec3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vec3.cpp; sourceTree = "<group>"; };
+		EE2089D015C15DBE0041D141 /* Vec4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vec4.cpp; sourceTree = "<group>"; };
+		EE2089D215C15DBE0041D141 /* Billboard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Billboard.cpp; sourceTree = "<group>"; };
+		EE2089D315C15DBE0041D141 /* FBO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FBO.cpp; sourceTree = "<group>"; };
+		EE2089D415C15DBE0041D141 /* MatrixStack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MatrixStack.cpp; sourceTree = "<group>"; };
+		EE2089D515C15DBE0041D141 /* PBO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PBO.cpp; sourceTree = "<group>"; };
+		EE2089D615C15DBE0041D141 /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
+		EE2089D715C15DBE0041D141 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
+		EE2089D815C15DBE0041D141 /* VAO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VAO.cpp; sourceTree = "<group>"; };
+		EE2089D915C15DBE0041D141 /* VBO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VBO.cpp; sourceTree = "<group>"; };
+		EE208A1615C15DE70041D141 /* Button.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Button.cpp; sourceTree = "<group>"; };
+		EE208A1715C15DE70041D141 /* Buttons.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Buttons.cpp; sourceTree = "<group>"; };
+		EE208A1815C15DE70041D141 /* Element.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Element.cpp; sourceTree = "<group>"; };
+		EE208A1915C15DE70041D141 /* Panel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Panel.cpp; sourceTree = "<group>"; };
+		EE208A1A15C15DE70041D141 /* Radio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Radio.cpp; sourceTree = "<group>"; };
+		EE208A1B15C15DE70041D141 /* Slider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Slider.cpp; sourceTree = "<group>"; };
+		EE208A1C15C15DE70041D141 /* Storage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Storage.cpp; sourceTree = "<group>"; };
+		EE208A1D15C15DE70041D141 /* Toggle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Toggle.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +235,8 @@
 		02CA526115C04D580054D57C /* shaders */ = {
 			isa = PBXGroup;
 			children = (
+				EE103D5A15C19C8A0018C2B7 /* mixer.frag */,
+				EE103D5B15C19C8A0018C2B7 /* mixer.vert */,
 				02CA526615C057CE0054D57C /* background.frag */,
 				02CA526715C057CE0054D57C /* background.vert */,
 				02CA526215C04D770054D57C /* chromakey.frag */,
@@ -131,6 +248,8 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				EE208A0615C15DE70041D141 /* Buttons */,
+				EE2089A515C15DBE0041D141 /* roxlu */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -202,6 +321,11 @@
 				02CA51D515C042C40054D57C /* Feed.cpp */,
 				02CA51D715C042CF0054D57C /* Feed.h */,
 				02CA51D815C043C10054D57C /* Constants.h */,
+				EE20891015C156AC0041D141 /* Mixer.cpp */,
+				EE20891215C156C20041D141 /* Mixer.h */,
+				EE103D5715C1815D0018C2B7 /* BaseHasPanel.cpp */,
+				EE103D5815C1815D0018C2B7 /* BaseHasPanel.h */,
+				EE103D5F15C19F3A0018C2B7 /* BaseHasCanvas.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -213,6 +337,154 @@
 				E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */,
 			);
 			name = openFrameworks;
+			sourceTree = "<group>";
+		};
+		EE2089A515C15DBE0041D141 /* roxlu */ = {
+			isa = PBXGroup;
+			children = (
+				EE2089A615C15DBE0041D141 /* 3d */,
+				EE2089B115C15DBE0041D141 /* core */,
+				EE2089B515C15DBE0041D141 /* experimental */,
+				EE2089BF15C15DBE0041D141 /* external */,
+				EE2089C115C15DBE0041D141 /* io */,
+				EE2089CA15C15DBE0041D141 /* math */,
+				EE2089D115C15DBE0041D141 /* opengl */,
+			);
+			name = roxlu;
+			path = ../addons/roxlu/lib/src/roxlu;
+			sourceTree = "<group>";
+		};
+		EE2089A615C15DBE0041D141 /* 3d */ = {
+			isa = PBXGroup;
+			children = (
+				EE2089A715C15DBE0041D141 /* ArcBall.cpp */,
+				EE2089A815C15DBE0041D141 /* Camera.cpp */,
+				EE2089A915C15DBE0041D141 /* EasyCam.cpp */,
+				EE2089AA15C15DBE0041D141 /* shapes */,
+				EE2089B015C15DBE0041D141 /* VertexData.cpp */,
+			);
+			path = 3d;
+			sourceTree = "<group>";
+		};
+		EE2089AA15C15DBE0041D141 /* shapes */ = {
+			isa = PBXGroup;
+			children = (
+				EE2089AB15C15DBE0041D141 /* Axis.cpp */,
+				EE2089AC15C15DBE0041D141 /* Box.cpp */,
+				EE2089AD15C15DBE0041D141 /* IcoSphere.cpp */,
+				EE2089AE15C15DBE0041D141 /* Plane.cpp */,
+				EE2089AF15C15DBE0041D141 /* UVSphere.cpp */,
+			);
+			path = shapes;
+			sourceTree = "<group>";
+		};
+		EE2089B115C15DBE0041D141 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				EE2089B215C15DBE0041D141 /* Noise.cpp */,
+				EE2089B315C15DBE0041D141 /* StringUtil.cpp */,
+				EE2089B415C15DBE0041D141 /* Utils.cpp */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		EE2089B515C15DBE0041D141 /* experimental */ = {
+			isa = PBXGroup;
+			children = (
+				EE2089B615C15DBE0041D141 /* BitmapFont.cpp */,
+				EE2089B715C15DBE0041D141 /* Image.cpp */,
+				EE2089B815C15DBE0041D141 /* SimpleAnim.cpp */,
+				EE2089B915C15DBE0041D141 /* StereoCam.cpp */,
+				EE2089BA15C15DBE0041D141 /* Text.cpp */,
+				EE2089BB15C15DBE0041D141 /* TGA.cpp */,
+				EE2089BC15C15DBE0041D141 /* TGARecorder.cpp */,
+				EE2089BD15C15DBE0041D141 /* Tween.cpp */,
+				EE2089BE15C15DBE0041D141 /* Tweens.cpp */,
+			);
+			path = experimental;
+			sourceTree = "<group>";
+		};
+		EE2089BF15C15DBE0041D141 /* external */ = {
+			isa = PBXGroup;
+			children = (
+				EE2089C015C15DBE0041D141 /* stb_image.c */,
+			);
+			path = external;
+			sourceTree = "<group>";
+		};
+		EE2089C115C15DBE0041D141 /* io */ = {
+			isa = PBXGroup;
+			children = (
+				EE2089C215C15DBE0041D141 /* Dictionary.cpp */,
+				EE2089C315C15DBE0041D141 /* DictionaryMap.cpp */,
+				EE2089C415C15DBE0041D141 /* File.cpp */,
+				EE2089C515C15DBE0041D141 /* INI.cpp */,
+				EE2089C615C15DBE0041D141 /* IOBuffer.cpp */,
+				EE2089C715C15DBE0041D141 /* OBJ.cpp */,
+				EE2089C815C15DBE0041D141 /* Ply.cpp */,
+				EE2089C915C15DBE0041D141 /* ROX.cpp */,
+			);
+			path = io;
+			sourceTree = "<group>";
+		};
+		EE2089CA15C15DBE0041D141 /* math */ = {
+			isa = PBXGroup;
+			children = (
+				EE2089CB15C15DBE0041D141 /* Mat3.cpp */,
+				EE2089CC15C15DBE0041D141 /* Mat4.cpp */,
+				EE2089CD15C15DBE0041D141 /* Quat.cpp */,
+				EE2089CE15C15DBE0041D141 /* Vec2.cpp */,
+				EE2089CF15C15DBE0041D141 /* Vec3.cpp */,
+				EE2089D015C15DBE0041D141 /* Vec4.cpp */,
+			);
+			path = math;
+			sourceTree = "<group>";
+		};
+		EE2089D115C15DBE0041D141 /* opengl */ = {
+			isa = PBXGroup;
+			children = (
+				EE2089D215C15DBE0041D141 /* Billboard.cpp */,
+				EE2089D315C15DBE0041D141 /* FBO.cpp */,
+				EE2089D415C15DBE0041D141 /* MatrixStack.cpp */,
+				EE2089D515C15DBE0041D141 /* PBO.cpp */,
+				EE2089D615C15DBE0041D141 /* Shader.cpp */,
+				EE2089D715C15DBE0041D141 /* Texture.cpp */,
+				EE2089D815C15DBE0041D141 /* VAO.cpp */,
+				EE2089D915C15DBE0041D141 /* VBO.cpp */,
+			);
+			path = opengl;
+			sourceTree = "<group>";
+		};
+		EE208A0615C15DE70041D141 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				EE208A1415C15DE70041D141 /* src */,
+			);
+			name = Buttons;
+			path = ../addons/roxlu/addons/Buttons;
+			sourceTree = "<group>";
+		};
+		EE208A1415C15DE70041D141 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				EE208A1515C15DE70041D141 /* buttons */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		EE208A1515C15DE70041D141 /* buttons */ = {
+			isa = PBXGroup;
+			children = (
+				EE208A1615C15DE70041D141 /* Button.cpp */,
+				EE208A1715C15DE70041D141 /* Buttons.cpp */,
+				EE208A1815C15DE70041D141 /* Element.cpp */,
+				EE208A1915C15DE70041D141 /* Panel.cpp */,
+				EE208A1A15C15DE70041D141 /* Radio.cpp */,
+				EE208A1B15C15DE70041D141 /* Slider.cpp */,
+				EE208A1C15C15DE70041D141 /* Storage.cpp */,
+				EE208A1D15C15DE70041D141 /* Toggle.cpp */,
+			);
+			path = buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +578,62 @@
 				02CA526515C04D770054D57C /* chromakey.vert in Sources */,
 				02CA526815C057CE0054D57C /* background.frag in Sources */,
 				02CA526915C057CE0054D57C /* background.vert in Sources */,
+				EE20891115C156AC0041D141 /* Mixer.cpp in Sources */,
+				EE2089DA15C15DBE0041D141 /* ArcBall.cpp in Sources */,
+				EE2089DB15C15DBE0041D141 /* Camera.cpp in Sources */,
+				EE2089DC15C15DBE0041D141 /* EasyCam.cpp in Sources */,
+				EE2089DD15C15DBE0041D141 /* Axis.cpp in Sources */,
+				EE2089DE15C15DBE0041D141 /* Box.cpp in Sources */,
+				EE2089DF15C15DBE0041D141 /* IcoSphere.cpp in Sources */,
+				EE2089E015C15DBE0041D141 /* Plane.cpp in Sources */,
+				EE2089E115C15DBE0041D141 /* UVSphere.cpp in Sources */,
+				EE2089E215C15DBE0041D141 /* VertexData.cpp in Sources */,
+				EE2089E315C15DBE0041D141 /* Noise.cpp in Sources */,
+				EE2089E415C15DBE0041D141 /* StringUtil.cpp in Sources */,
+				EE2089E515C15DBE0041D141 /* Utils.cpp in Sources */,
+				EE2089E615C15DBE0041D141 /* BitmapFont.cpp in Sources */,
+				EE2089E715C15DBE0041D141 /* Image.cpp in Sources */,
+				EE2089E815C15DBE0041D141 /* SimpleAnim.cpp in Sources */,
+				EE2089E915C15DBE0041D141 /* StereoCam.cpp in Sources */,
+				EE2089EA15C15DBE0041D141 /* Text.cpp in Sources */,
+				EE2089EB15C15DBE0041D141 /* TGA.cpp in Sources */,
+				EE2089EC15C15DBE0041D141 /* TGARecorder.cpp in Sources */,
+				EE2089ED15C15DBE0041D141 /* Tween.cpp in Sources */,
+				EE2089EE15C15DBE0041D141 /* Tweens.cpp in Sources */,
+				EE2089EF15C15DBE0041D141 /* stb_image.c in Sources */,
+				EE2089F015C15DBE0041D141 /* Dictionary.cpp in Sources */,
+				EE2089F115C15DBE0041D141 /* DictionaryMap.cpp in Sources */,
+				EE2089F215C15DBE0041D141 /* File.cpp in Sources */,
+				EE2089F315C15DBE0041D141 /* INI.cpp in Sources */,
+				EE2089F415C15DBE0041D141 /* IOBuffer.cpp in Sources */,
+				EE2089F515C15DBE0041D141 /* OBJ.cpp in Sources */,
+				EE2089F615C15DBE0041D141 /* Ply.cpp in Sources */,
+				EE2089F715C15DBE0041D141 /* ROX.cpp in Sources */,
+				EE2089F815C15DBE0041D141 /* Mat3.cpp in Sources */,
+				EE2089F915C15DBE0041D141 /* Mat4.cpp in Sources */,
+				EE2089FA15C15DBE0041D141 /* Quat.cpp in Sources */,
+				EE2089FB15C15DBE0041D141 /* Vec2.cpp in Sources */,
+				EE2089FC15C15DBE0041D141 /* Vec3.cpp in Sources */,
+				EE2089FD15C15DBE0041D141 /* Vec4.cpp in Sources */,
+				EE2089FE15C15DBE0041D141 /* Billboard.cpp in Sources */,
+				EE2089FF15C15DBE0041D141 /* FBO.cpp in Sources */,
+				EE208A0015C15DBE0041D141 /* MatrixStack.cpp in Sources */,
+				EE208A0115C15DBE0041D141 /* PBO.cpp in Sources */,
+				EE208A0215C15DBE0041D141 /* Shader.cpp in Sources */,
+				EE208A0315C15DBE0041D141 /* Texture.cpp in Sources */,
+				EE208A0415C15DBE0041D141 /* VAO.cpp in Sources */,
+				EE208A0515C15DBE0041D141 /* VBO.cpp in Sources */,
+				EE208A1E15C15DE70041D141 /* Button.cpp in Sources */,
+				EE208A1F15C15DE70041D141 /* Buttons.cpp in Sources */,
+				EE208A2015C15DE70041D141 /* Element.cpp in Sources */,
+				EE208A2115C15DE70041D141 /* Panel.cpp in Sources */,
+				EE208A2215C15DE70041D141 /* Radio.cpp in Sources */,
+				EE208A2315C15DE70041D141 /* Slider.cpp in Sources */,
+				EE208A2415C15DE70041D141 /* Storage.cpp in Sources */,
+				EE208A2515C15DE70041D141 /* Toggle.cpp in Sources */,
+				EE103D5915C1815D0018C2B7 /* BaseHasPanel.cpp in Sources */,
+				EE103D5C15C19C8A0018C2B7 /* mixer.frag in Sources */,
+				EE103D5D15C19C8A0018C2B7 /* mixer.vert in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

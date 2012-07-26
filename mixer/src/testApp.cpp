@@ -4,30 +4,39 @@ ofVideoPlayer *player;
 
 void testApp::setup(){
 
-//  feed.setBackroundSource(new ofVideoPlayer());
-  feed.setup();
+	ofSetFrameRate(30);
+	ofSetVerticalSync(true);
+
+//  feed.setup();
+//  
+//  player = new ofVideoPlayer();
+//  player->loadMovie("bieber.gif");
+//  player->play();
+//  feed.setBackgroundSource(player);
   
-  player = new ofVideoPlayer();
-  player->loadMovie("bieber.gif");
-  player->play();
-  feed.setBackgroundSource(player);
-  
-  
+  mixer.setup();
+//	mixer.addFeed(new Feed());
+	mixer.addFeed(new Feed());
+	
 //  delete feed.background;
 }
 
 
 void testApp::update(){
 
-  feed.update();
-  
-  player->update();
+
+	mixer.update();
+	
+//  feed.update();
+//  
+//  player->update();
 }
 
 
 void testApp::draw(){
 
-  feed.draw();
+//  feed.draw();
+	mixer.draw();
 }
 
 
@@ -53,7 +62,7 @@ void testApp::mouseDragged(int x, int y, int button){
 
 void testApp::mousePressed(int x, int y, int button){
 
-  feed.setBackgroundHueFromPoint(x, y);
+//  feed.setBackgroundHueFromPoint(x, y);
 }
 
 
