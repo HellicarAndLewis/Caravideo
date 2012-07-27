@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		02CA51D615C042C40054D57C /* Feed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02CA51D515C042C40054D57C /* Feed.cpp */; };
-		02CA526415C04D770054D57C /* chromakey.frag in Sources */ = {isa = PBXBuildFile; fileRef = 02CA526215C04D770054D57C /* chromakey.frag */; };
-		02CA526515C04D770054D57C /* chromakey.vert in Sources */ = {isa = PBXBuildFile; fileRef = 02CA526315C04D770054D57C /* chromakey.vert */; };
+		02CA526415C04D770054D57C /* main_feed.frag in Sources */ = {isa = PBXBuildFile; fileRef = 02CA526215C04D770054D57C /* main_feed.frag */; };
+		02CA526515C04D770054D57C /* main_feed.vert in Sources */ = {isa = PBXBuildFile; fileRef = 02CA526315C04D770054D57C /* main_feed.vert */; };
 		02CA526815C057CE0054D57C /* background.frag in Sources */ = {isa = PBXBuildFile; fileRef = 02CA526615C057CE0054D57C /* background.frag */; };
 		02CA526915C057CE0054D57C /* background.vert in Sources */ = {isa = PBXBuildFile; fileRef = 02CA526715C057CE0054D57C /* background.vert */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
@@ -121,8 +121,8 @@
 		02CA51D515C042C40054D57C /* Feed.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Feed.cpp; sourceTree = "<group>"; };
 		02CA51D715C042CF0054D57C /* Feed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Feed.h; sourceTree = "<group>"; };
 		02CA51D815C043C10054D57C /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		02CA526215C04D770054D57C /* chromakey.frag */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; name = chromakey.frag; path = bin/data/chromakey.frag; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
-		02CA526315C04D770054D57C /* chromakey.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = chromakey.vert; path = bin/data/chromakey.vert; sourceTree = "<group>"; };
+		02CA526215C04D770054D57C /* main_feed.frag */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; name = main_feed.frag; path = bin/data/main_feed.frag; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		02CA526315C04D770054D57C /* main_feed.vert */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; name = main_feed.vert; path = bin/data/main_feed.vert; sourceTree = "<group>"; };
 		02CA526615C057CE0054D57C /* background.frag */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; name = background.frag; path = bin/data/background.frag; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		02CA526715C057CE0054D57C /* background.vert */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; name = background.vert; path = bin/data/background.vert; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
@@ -239,8 +239,8 @@
 				EE103D5B15C19C8A0018C2B7 /* mixer.vert */,
 				02CA526615C057CE0054D57C /* background.frag */,
 				02CA526715C057CE0054D57C /* background.vert */,
-				02CA526215C04D770054D57C /* chromakey.frag */,
-				02CA526315C04D770054D57C /* chromakey.vert */,
+				02CA526215C04D770054D57C /* main_feed.frag */,
+				02CA526315C04D770054D57C /* main_feed.vert */,
 			);
 			name = shaders;
 			sourceTree = "<group>";
@@ -574,8 +574,8 @@
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* testApp.cpp in Sources */,
 				02CA51D615C042C40054D57C /* Feed.cpp in Sources */,
-				02CA526415C04D770054D57C /* chromakey.frag in Sources */,
-				02CA526515C04D770054D57C /* chromakey.vert in Sources */,
+				02CA526415C04D770054D57C /* main_feed.frag in Sources */,
+				02CA526515C04D770054D57C /* main_feed.vert in Sources */,
 				02CA526815C057CE0054D57C /* background.frag in Sources */,
 				02CA526915C057CE0054D57C /* background.vert in Sources */,
 				EE20891115C156AC0041D141 /* Mixer.cpp in Sources */,

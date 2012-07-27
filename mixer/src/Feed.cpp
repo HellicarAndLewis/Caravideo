@@ -11,20 +11,27 @@
 
 
 Feed::Feed():
-BaseHasPanel(),
+BaseHasPanel("Feed"),
 BaseHasCanvas(),
 background_hue(0),
 background(NULL),
-imagePos(0, 0),
-number_of_tiles(1) {
+imagePos(0, 0) {
   
+}
+
+Feed::Feed(int ID):
+BaseHasPanel("Feed " + ofToString(ID)),
+BaseHasCanvas(),
+background_hue(0),
+background(NULL),
+imagePos(0, 0) {
+  grabber.setDeviceID(ID);
+	panel->setPosition(ID*300, 0);
 }
 
 Feed::~Feed() {
   
-  if (background != NULL) {
-    delete background;
-  }
+  removeBackground();
 }
 
 void Feed::setup() {
@@ -36,7 +43,7 @@ void Feed::setup() {
   gTexture.allocate(VIDEO_WIDTH, VIDEO_HEIGHT, GL_RGBA);
 
   
-  chromaShader.load("chromakey");
+  chromaShader.load("main_feed");
   backgroundShader.load("background");
   
 	
@@ -47,17 +54,30 @@ void Feed::setup() {
 	ofClear(0, 0, 0, 1);
 	fbo.end();
   
+	panel->addButton("Load background video", LOAD_BACKGROUND_BUTTON, this);
+	panel->addButton("Set background to other source", LOAD_OTHER_SOURCE_AS_BACKGROUND_BUTTON, this);
 	
-  
+	number_of_tiles = 1;
 	panel->addFloat("Number of Tiles", number_of_tiles).setMin(0.0).setMax(10.0);
-	panel->setColor(0.4); // set color - AFTER - adding all elements. Use a "hue" value.
+	panel->addBool("set background hue", dummy_bool);
 	
-	panel->addButtons("chromakey");
-	panel->getButtons("chromakey").addBool("set background hue", dummy_bool);
-
+	bloom_amount = 1.0;
+	panel->addFloat("Bloom amount", bloom_amount).setMin(0.0).setMax(4.0);
+	
+	bloom_mix = 0.5;
+	panel->addFloat("Bloom mix", bloom_mix).setMin(0.0).setMax(1.0);
+	
 	panel->setColor(0.6);
 	
 	panel->load();
+	
+	
+	background = new ofVideoPlayer();
+	((ofVideoPlayer*) background)->setUseTexture(true);
+	((ofVideoPlayer*) background)->loadMovie("bieber.gif");
+	((ofVideoPlayer*) background)->play();
+	
+	isUsingOtherFeedAsBackground = false;
 }
 
 void Feed::update() {
@@ -68,6 +88,24 @@ void Feed::update() {
     gTexture = grabber.getTextureReference();
   }
 	
+	if (background != NULL) {
+		
+		
+    if (ofVideoPlayer *bplayer = dynamic_cast<ofVideoPlayer*>(background)) {
+			bplayer->update();
+    }
+		
+    else if (ofVideoGrabber *bgrabber = dynamic_cast<ofVideoGrabber*>(background)) {
+      
+			//don't update the background if it's the other feed as it's already being updated
+			if (!isUsingOtherFeedAsBackground) {
+				bgrabber->update();
+			}
+    }
+
+  }
+
+	
 	panel->update();
 	
 //	cout << ((buttons::Toggle*) panel->getButtons("video").getElement("t"))->value << endl;
@@ -75,38 +113,37 @@ void Feed::update() {
 
 void Feed::draw() {
   
+	fbo.begin();
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
   
-//  if (background != NULL) {
-//		
-//		ofTexture btex;
-//		
-//    if (ofVideoPlayer *bplayer = dynamic_cast<ofVideoPlayer*>(background)) {
-//			btex = bplayer->getTextureReference();      
-//    }
-//		
-//    else if (ofVideoGrabber *bgrabber = dynamic_cast<ofVideoGrabber*>(background)) {
-//      btex = bgrabber->getTextureReference();
-//    }
-//		
-//		btex.bind();
-//		
-//		backgroundShader.begin();
-//		backgroundShader.setUniformTexture("tex", btex, 0);
-//		backgroundShader.setUniform2f("inputSize", VIDEO_WIDTH, VIDEO_HEIGHT);
-//		backgroundShader.setUniform1f("scale_factor", 5);
-//		
-//		canvas.draw();
-//		
-//		backgroundShader.end();
-//		
-//		btex.unbind();
-//		
-//  }
+  if (background != NULL) {
+		
+		ofTexture btex;
+		
+    if (ofVideoPlayer *bplayer = dynamic_cast<ofVideoPlayer*>(background)) {
+			btex = bplayer->getTextureReference();      
+    }
+		
+    else if (ofVideoGrabber *bgrabber = dynamic_cast<ofVideoGrabber*>(background)) {
+      btex = bgrabber->getTextureReference();
+    }
+		
+		btex.bind();
+		
+		backgroundShader.begin();
+		backgroundShader.setUniformTexture("tex", btex, 0);
+		backgroundShader.setUniform2f("inputSize", VIDEO_WIDTH, VIDEO_HEIGHT);
+		backgroundShader.setUniform1f("scale_factor", number_of_tiles);
+		
+		canvas.draw();
+		
+		backgroundShader.end();
+		
+		btex.unbind();
+		
+  }
   
-	fbo.begin();
-	
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   
   ofEnableAlphaBlending();
   
@@ -116,8 +153,8 @@ void Feed::draw() {
   chromaShader.setUniformTexture("tex0", gTexture, 0);
   chromaShader.setUniform1f("background_hue", background_hue);
 	
-	chromaShader.setUniform1f("bloom_amount", ofGetMouseX()/100.0);
-  chromaShader.setUniform1f("bloom_mix", ofGetMouseY()/200.0);
+	chromaShader.setUniform1f("bloom_amount", bloom_amount);
+  chromaShader.setUniform1f("bloom_mix", bloom_mix);
 	
 	
   canvas.draw();
@@ -144,14 +181,19 @@ ofTexture& Feed::getTextureReference() {
 	return fbo.getTextureReference();
 }
 
-void Feed::setBackgroundSource(ofBaseVideoDraws *bd) {
+void Feed::setBackgroundSource(ofBaseVideoDraws *bd, bool isOtherFeed) {
 	
-	if (background != NULL) {
+	removeBackground();
+	
+	background = bd;
+	isUsingOtherFeedAsBackground = isOtherFeed;
+}
+
+void Feed::removeBackground() {
+	if (background != NULL && !isUsingOtherFeedAsBackground) {
 		delete background;
 		background = NULL;
 	}
-	
-	background = bd;
 }
 
 void Feed::setBackgroundHueFromPoint(int x , int y) {
@@ -172,12 +214,12 @@ void Feed::setBackgroundHueFromPoint(int x , int y) {
 
 
 void Feed::mousePressed(ofMouseEventArgs &args) {
-	bool &value = ((buttons::Toggle*) panel->getButtons("chromakey").getElement("set background hue"))->value;
+	bool &value = ((buttons::Toggle*) panel->getElement("set background hue"))->value;
 	
 	if (value) {
 		setBackgroundHueFromPoint(args.x, args.y);
 		value = false;
-		((buttons::Toggle*) panel->getButtons("chromakey").getElement("set background hue"))->needsRedraw();
+		((buttons::Toggle*) panel->getElement("set background hue"))->needsRedraw();
 	}
 	
 	BaseHasPanel::mousePressed(args);

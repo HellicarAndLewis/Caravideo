@@ -12,7 +12,7 @@
 
 class BaseHasPanel {
 public:
-	BaseHasPanel();
+	BaseHasPanel(string title);
 	virtual ~BaseHasPanel();
 	
 	virtual void operator()(unsigned int bID);
@@ -22,6 +22,6 @@ public:
 	virtual void mouseReleased(ofMouseEventArgs &args);
 	
 protected:
-	buttons::Panel *panel;
+	buttons::Buttons *panel;
 	
 };

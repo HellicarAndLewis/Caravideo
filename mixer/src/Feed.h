@@ -15,6 +15,7 @@
 class Feed : public BaseHasPanel, BaseHasCanvas {
 public:
   Feed();
+	Feed(int ID);
   ~Feed();
   
   void setup();
@@ -27,10 +28,13 @@ public:
   float background_hue;
   void setBackgroundHueFromPoint(int x, int y);
   
-  void setBackgroundSource(ofBaseVideoDraws *bd);
-
+  void setBackgroundSource(ofBaseVideoDraws *bd, bool isOtherFeed=false);
+	void removeBackground();
+	
 	void mousePressed(ofMouseEventArgs &args);
   
+	ofVideoGrabber* getGrabberPointer() { return &grabber; }
+	
 protected:
   ofVideoGrabber grabber;
   ofTexture gTexture;
@@ -48,5 +52,10 @@ protected:
 	
 	float number_of_tiles;
 	bool dummy_bool;
-
+	
+	float bloom_amount, bloom_mix;
+	
+	
+	bool isUsingOtherFeedAsBackground;
+	
 };

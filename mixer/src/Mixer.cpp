@@ -9,7 +9,7 @@
 #include "Mixer.h"
 
 Mixer::Mixer():
-BaseHasPanel(),
+BaseHasPanel("Mixer"),
 BaseHasCanvas(),
 feed_counter(0),
 draw_guis(true) {
@@ -37,8 +37,12 @@ void Mixer::setup() {
 
 //	panel->content_x = 300;
 //	panel->position();
+	panel->setPosition(300, 300);
 	
+	cross_fader = 0;
 	panel->addFloat("crossfader", cross_fader).setMin(0.0).setMax(1.0);
+	panel->addFloat("eras", cross_fader).setMin(0.0).setMax(1.0);
+
 	panel->load();
 	
 	
@@ -57,18 +61,25 @@ void Mixer::update() {
 
 void Mixer::draw() {
 	
-	for (int i = 0; i < NUM_FEEDS && feeds[i] != NULL; i++) {
-		
-		feeds[i]->getTextureReference().draw(i*640, 0);
-	}
+//	for (int i = 0; i < NUM_FEEDS && feeds[i] != NULL; i++) {
+//		
+//		feeds[i]->getTextureReference().draw(i*640, 0);
+//	}
 	
 	
 	texture.bind();
 	
 	mixerShader.begin();
 	
-	mixerShader.setUniformTexture("tex0", img, 0);
-	mixerShader.setUniformTexture("tex1", feeds[0]->getTextureReference(), 1);
+	mixerShader.setUniformTexture("tex0", feeds[0]->getTextureReference(), 0);
+	
+	//use an image if we only have one feed
+	if (feed_counter < 2) {
+		mixerShader.setUniformTexture("tex1", img, 1);
+	}
+	else {
+		mixerShader.setUniformTexture("tex1", feeds[1]->getTextureReference(), 1);
+	}
 	
 	mixerShader.setUniform1f("cross_fader", cross_fader);
 
@@ -105,5 +116,7 @@ void Mixer::addFeed(Feed *feed) {
 	
 	feeds[feed_counter] = feed;
 	feeds[feed_counter]->setup();
+	
+	feed_counter++;
 	
 }

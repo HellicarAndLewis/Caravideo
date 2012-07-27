@@ -19,26 +19,31 @@ void main() {
   
   vec4 col = texture2DRect(tex0, texc);
 	
-//	vec4 sum;
-//	
-//	int r = 5;
-//	for (int i = -r; i < r; i++) {
-//		for (int j = -r; j < r; j++) {
-//			sum+= texture2DRect(tex0, texc + vec2(i, j)) * bloom_amount;
-//		}
-//	}
-//	vec4 mixed = mix(vec4(0, 0, 0, 0), col * col, bloom_mix);
-//	gl_FragColor = sum * mixed;
-//	return;
-	
-  
+	//first perform background subtraction
   float hue = getHue(col);
   
   if (abs(hue - background_hue) < 0.1) {
     col.a = 0.0;
   }
+
+	//now we have the background with 0 alpha
+	
+	//do bloom
+	vec4 sum;
+	
+	int r = 4;
+	for (int i = -r; i < r; i++) {
+		for (int j = -r; j < r; j++) {
+			sum+= texture2DRect(tex0, texc + vec2(i, j)) * bloom_amount;
+		}
+	}
+	vec4 mixed = mix(vec4(0, 0, 0, 0), col * col, bloom_mix);
+	
+	gl_FragColor = sum * mixed * col.a;
+	
+	
   
-  gl_FragColor = col;
+//  gl_FragColor = col;
   
 }
 

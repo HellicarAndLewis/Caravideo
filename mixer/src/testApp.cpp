@@ -1,5 +1,6 @@
 #include "testApp.h"
 
+
 ofVideoPlayer *player;
 
 void testApp::setup(){
@@ -7,18 +8,14 @@ void testApp::setup(){
 	ofSetFrameRate(30);
 	ofSetVerticalSync(true);
 
-//  feed.setup();
-//  
-//  player = new ofVideoPlayer();
-//  player->loadMovie("bieber.gif");
-//  player->play();
-//  feed.setBackgroundSource(player);
+	ofBackground(20);
+
   
   mixer.setup();
-//	mixer.addFeed(new Feed());
-	mixer.addFeed(new Feed());
+	mixer.addFeed(new Feed(2));
+	mixer.addFeed(new Feed(3));
 	
-//  delete feed.background;
+
 }
 
 
@@ -26,16 +23,11 @@ void testApp::update(){
 
 
 	mixer.update();
-	
-//  feed.update();
-//  
-//  player->update();
 }
 
 
 void testApp::draw(){
 
-//  feed.draw();
 	mixer.draw();
 }
 
@@ -62,7 +54,6 @@ void testApp::mouseDragged(int x, int y, int button){
 
 void testApp::mousePressed(int x, int y, int button){
 
-//  feed.setBackgroundHueFromPoint(x, y);
 }
 
 

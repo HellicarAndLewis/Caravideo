@@ -28,6 +28,9 @@ public:
 	
 	bool draw_guis;
 	
+	int getNumFeeds() { return feed_counter; }
+	Feed* getFeed(int i) { return feeds[i]; }
+	
 protected:
 	Feed *feeds[NUM_FEEDS];
 	int feed_counter;
