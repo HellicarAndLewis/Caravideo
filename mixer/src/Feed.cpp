@@ -7,8 +7,7 @@
 //
 
 #include "Feed.h"
-#include "Constants.h"
-
+#include "testApp.h"
 
 Feed::Feed():
 BaseHasPanel("Feed"),
@@ -53,22 +52,27 @@ void Feed::setup() {
 	fbo.begin();
 	ofClear(0, 0, 0, 1);
 	fbo.end();
-  
+
+	panel->addBool("Set background hue", dummy_bool);
 	panel->addButton("Load background video", LOAD_BACKGROUND_BUTTON, this);
 	panel->addButton("Set background to other source", LOAD_OTHER_SOURCE_AS_BACKGROUND_BUTTON, this);
 	
 	number_of_tiles = 1;
 	panel->addFloat("Number of Tiles", number_of_tiles).setMin(0.0).setMax(10.0);
-	panel->addBool("set background hue", dummy_bool);
 	
+	do_bloom = false;
+	panel->addBool("Use Bloom", do_bloom);
 	bloom_amount = 1.0;
 	panel->addFloat("Bloom amount", bloom_amount).setMin(0.0).setMax(4.0);
-	
 	bloom_mix = 0.5;
 	panel->addFloat("Bloom mix", bloom_mix).setMin(0.0).setMax(1.0);
 	
-	panel->setColor(0.6);
+	do_chab = false;
+	panel->addBool("Use chromatic aberration", do_chab);
+	chab_amount = 0;
+	panel->addFloat("Chromatic aberration amount", chab_amount).setMin(0.0).setMax(20.0);
 	
+	panel->setColor(0.6);
 	panel->load();
 	
 	
@@ -108,7 +112,6 @@ void Feed::update() {
 	
 	panel->update();
 	
-//	cout << ((buttons::Toggle*) panel->getButtons("video").getElement("t"))->value << endl;
 }
 
 void Feed::draw() {
@@ -153,9 +156,16 @@ void Feed::draw() {
   chromaShader.setUniformTexture("tex0", gTexture, 0);
   chromaShader.setUniform1f("background_hue", background_hue);
 	
+	chromaShader.setUniform1i("do_bloom", do_bloom);
 	chromaShader.setUniform1f("bloom_amount", bloom_amount);
   chromaShader.setUniform1f("bloom_mix", bloom_mix);
 	
+	chromaShader.setUniform1i("do_chab", do_chab);
+	chromaShader.setUniform1f("chab_amount", chab_amount);
+	
+	float scurv = ((testApp*) ofGetAppPtr())->getCurrentVolume();
+	scurv = ofMap(scurv, 0, 1, 1, 10, true);
+	chromaShader.setUniform1f("signcurvature", scurv);
 	
   canvas.draw();
 	texture.unbind();
@@ -214,14 +224,45 @@ void Feed::setBackgroundHueFromPoint(int x , int y) {
 
 
 void Feed::mousePressed(ofMouseEventArgs &args) {
-	bool &value = ((buttons::Toggle*) panel->getElement("set background hue"))->value;
+	bool &value = ((buttons::Toggle*) panel->getElement("Set background hue"))->value;
 	
 	if (value) {
 		setBackgroundHueFromPoint(args.x, args.y);
 		value = false;
-		((buttons::Toggle*) panel->getElement("set background hue"))->needsRedraw();
+		((buttons::Toggle*) panel->getElement("Set background hue"))->needsRedraw();
 	}
 	
 	BaseHasPanel::mousePressed(args);
 }
 
+void Feed::operator()(unsigned int bID) {
+	
+	switch (bID) {
+		case LOAD_BACKGROUND_BUTTON:
+		{
+			ofFileDialogResult result = ofSystemLoadDialog();
+			ofVideoPlayer *player = new ofVideoPlayer();
+			player->loadMovie(result.filePath);
+			player->play();
+			setBackgroundSource(player);
+			break;
+		}	
+			
+		case LOAD_OTHER_SOURCE_AS_BACKGROUND_BUTTON:
+		{	
+			
+			int nfeeds = ((testApp*) ofGetAppPtr())->mixer.getNumFeeds();
+			
+			for (int i = 0; i < nfeeds; i++) {
+				Feed *feed = ((testApp*) ofGetAppPtr())->mixer.getFeed(i);
+				if (this != feed) {
+					
+					setBackgroundSource(feed->getGrabberPointer(), true);
+				}
+			}
+			
+			break;
+		}
+			
+	}
+}

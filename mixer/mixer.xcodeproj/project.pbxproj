@@ -120,7 +120,6 @@
 /* Begin PBXFileReference section */
 		02CA51D515C042C40054D57C /* Feed.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Feed.cpp; sourceTree = "<group>"; };
 		02CA51D715C042CF0054D57C /* Feed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Feed.h; sourceTree = "<group>"; };
-		02CA51D815C043C10054D57C /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		02CA526215C04D770054D57C /* main_feed.frag */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; name = main_feed.frag; path = bin/data/main_feed.frag; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		02CA526315C04D770054D57C /* main_feed.vert */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; name = main_feed.vert; path = bin/data/main_feed.vert; sourceTree = "<group>"; };
 		02CA526615C057CE0054D57C /* background.frag */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; name = background.frag; path = bin/data/background.frag; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
@@ -320,7 +319,6 @@
 				E4B69E1F0A3A1BDC003C02F2 /* testApp.h */,
 				02CA51D515C042C40054D57C /* Feed.cpp */,
 				02CA51D715C042CF0054D57C /* Feed.h */,
-				02CA51D815C043C10054D57C /* Constants.h */,
 				EE20891015C156AC0041D141 /* Mixer.cpp */,
 				EE20891215C156C20041D141 /* Mixer.h */,
 				EE103D5715C1815D0018C2B7 /* BaseHasPanel.cpp */,

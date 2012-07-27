@@ -17,6 +17,19 @@
 
 class Mixer : public BaseHasPanel, BaseHasCanvas {
 public:
+	
+	enum transition_type {
+		SLIDE_TRANSITION,
+		BLEND_TRANSITION,
+		FLIP_TRANSITION
+	};
+	
+	enum {
+		SLIDE_BUTTON,
+		FLIP_BUTTON,
+		BLEND_BUTTON
+	};
+	
   Mixer();
 	~Mixer();
 	
@@ -24,12 +37,16 @@ public:
 	void update();
 	void draw();
 	
+	void operator()(unsigned int bID);
+	
+	void perfomTransition(transition_type type);
+	
+	
 	void addFeed(Feed *feed);
-	
-	bool draw_guis;
-	
 	int getNumFeeds() { return feed_counter; }
 	Feed* getFeed(int i) { return feeds[i]; }
+	
+	void toggleGuis() { draw_guis = !draw_guis; }
 	
 protected:
 	Feed *feeds[NUM_FEEDS];
@@ -37,5 +54,15 @@ protected:
 	
 	ofShader mixerShader;
 	
+	bool do_mix;
 	float cross_fader;
+	
+	bool do_slide, slide_which;
+	float slide_amount;
+	
+	bool draw_guis;
+
+	
+	bool tempDoMix;
+	float tempMixValue;
 };

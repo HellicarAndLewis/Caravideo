@@ -23,6 +23,8 @@ public:
   void draw();
 	void drawGui();
   
+	void operator()(unsigned int bID);
+	
 	ofTexture& getTextureReference();
   
   float background_hue;
@@ -53,9 +55,18 @@ protected:
 	float number_of_tiles;
 	bool dummy_bool;
 	
+	bool do_bloom;
 	float bloom_amount, bloom_mix;
 	
+	bool do_chab;
+	float chab_amount;
+
 	
 	bool isUsingOtherFeedAsBackground;
+
 	
+	enum {
+		LOAD_BACKGROUND_BUTTON,
+		LOAD_OTHER_SOURCE_AS_BACKGROUND_BUTTON
+	};
 };
