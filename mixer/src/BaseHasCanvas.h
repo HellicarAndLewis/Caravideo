@@ -10,7 +10,7 @@
 
 #include "ofMain.h"
 
-#define VIDEO_WIDTH 640
+#define VIDEO_WIDTH 848
 #define VIDEO_HEIGHT 480
 
 class BaseHasCanvas {

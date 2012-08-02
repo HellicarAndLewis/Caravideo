@@ -16,6 +16,7 @@ void testApp::setup(){
   
   mixer.setup();
 	mixer.addFeed(new Feed(2));
+	ofSleepMillis(2000);
 	mixer.addFeed(new Feed(3));
 	
 }

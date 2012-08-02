@@ -4,6 +4,7 @@ uniform sampler2DRect tex0;
 
 uniform float background_hue;
 uniform float max_dist;
+uniform bool do_chroma;
 
 //bloom
 uniform bool do_bloom;
@@ -17,6 +18,7 @@ uniform float chab_amount;
 //fisheye
 //uniform float lensradius;
 uniform float signcurvature;
+uniform bool do_fisheye;
 
 
 float getHue(vec4 col);
@@ -27,15 +29,19 @@ void main() {
   
   vec4 col = texture2DRect(tex0, texc);
 	
-	//first perform background subtraction
-  float hue = getHue(col);
-  
-  if (abs(hue - background_hue) < 0.1) {
-    col.a = 0.0;
-		gl_FragColor = col;
-		return;
-  }
-
+	if (do_chroma) {
+		//first perform background subtraction
+		float hue = getHue(col);
+		
+		if (abs(hue - background_hue) < 0.1) {
+			col.a = 0.0;
+			gl_FragColor = col;
+			return;
+		}
+	}
+	
+	
+	//if do_chroma == true, 
 	//we are now only dealing with the foreground
 	
 	if (do_chab) {
@@ -59,33 +65,36 @@ void main() {
 		col = sum * mix_factor;// * col.a;
 	}
 	
-	
-	float lensradius = 2.0;
-	vec2 texd = vec2(640.0, 480.0);
-	
-	float curvature = abs(signcurvature);
-	float extent = lensradius;
-	float optics = extent / log2(curvature * extent + 1.0) / 1.4427;
-	vec2 normalizeTD = texc/texd;
-	vec2 PP = normalizeTD - vec2(0.5,0.5);
-	float P0 = PP[0];
-	float P1 = PP[1];
-	float radius = sqrt(P0 * P0 + P1 * P1);
-	
-	float cosangle = P0 / radius;
-	float sinangle = P1 / radius;
-	
-	float rad1, rad2, newradius;
-	rad1 = (exp2((radius / optics) * 1.4427) - 1.0) / curvature;
-	rad2 = optics * log2(1.0 + curvature * radius) / 1.4427;
-	newradius = signcurvature > 0.0 ? rad1 : rad2;
-	
-	vec2 FE = vec2(newradius * cosangle + 0.5,newradius * sinangle + 0.5);
-	FE = radius <= extent ? FE : normalizeTD;
-	//    FE = curvature < EPSILON ? normalizeTD : FE;
-	
-	gl_FragColor = col + texture2DRect(tex0, FE*texd);
-	
+	if (do_fisheye) {
+		float lensradius = 2.0;
+		vec2 texd = vec2(640.0, 480.0);
+		
+		float curvature = abs(signcurvature);
+		float extent = lensradius;
+		float optics = extent / log2(curvature * extent + 1.0) / 1.4427;
+		vec2 normalizeTD = texc/texd;
+		vec2 PP = normalizeTD - vec2(0.5,0.5);
+		float P0 = PP[0];
+		float P1 = PP[1];
+		float radius = sqrt(P0 * P0 + P1 * P1);
+		
+		float cosangle = P0 / radius;
+		float sinangle = P1 / radius;
+		
+		float rad1, rad2, newradius;
+		rad1 = (exp2((radius / optics) * 1.4427) - 1.0) / curvature;
+		rad2 = optics * log2(1.0 + curvature * radius) / 1.4427;
+		newradius = signcurvature > 0.0 ? rad1 : rad2;
+		
+		vec2 FE = vec2(newradius * cosangle + 0.5,newradius * sinangle + 0.5);
+		FE = radius <= extent ? FE : normalizeTD;
+		//    FE = curvature < EPSILON ? normalizeTD : FE;
+		
+		gl_FragColor = col + texture2DRect(tex0, FE*texd);
+		return;
+	}
+
+	gl_FragColor = col;
 }
 
 float getHue(vec4 col) {

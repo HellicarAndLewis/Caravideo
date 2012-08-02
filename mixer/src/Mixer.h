@@ -27,7 +27,8 @@ public:
 	enum {
 		SLIDE_BUTTON,
 		FLIP_BUTTON,
-		BLEND_BUTTON
+		BLEND_BUTTON,
+		SWITCH_BUTTON
 	};
 	
   Mixer();

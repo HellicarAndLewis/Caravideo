@@ -8,6 +8,8 @@
 
 #include "Mixer.h"
 
+#define SLIDE_SPEED 12
+
 Mixer::Mixer():
 BaseHasPanel("Mixer"),
 BaseHasCanvas(),
@@ -42,6 +44,7 @@ void Mixer::setup() {
 	panel->addFloat("crossfader", cross_fader).setMin(0.0).setMax(1.0);
 
 	panel->addButton("do slide", SLIDE_BUTTON, this);
+	panel->addButton("switch", SWITCH_BUTTON, this);
 	
 	do_slide = false;
 	slide_amount = 0;
@@ -62,7 +65,7 @@ void Mixer::update() {
 	panel->update();
 	
 	if (do_slide) {
-		slide_amount+=6;
+		slide_amount+= SLIDE_SPEED;
 		
 		if (slide_amount > texture.getHeight()) {
 			do_slide = false;
@@ -174,5 +177,14 @@ void Mixer::operator()(unsigned int bID) {
 		case SLIDE_BUTTON:
 			perfomTransition(SLIDE_TRANSITION);
 			break;
+			
+		case SWITCH_BUTTON:
+			if (cross_fader < 0.5) {
+				cross_fader = 1.0;
+			}
+			else {
+				cross_fader = 0.0;
+			}
+
 	}
 }

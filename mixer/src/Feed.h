@@ -12,6 +12,8 @@
 #include "BaseHasPanel.h"
 #include "BaseHasCanvas.h"
 
+#define USE_VIDEO
+
 class Feed : public BaseHasPanel, BaseHasCanvas {
 public:
   Feed();
@@ -34,13 +36,20 @@ public:
 	void removeBackground();
 	
 	void mousePressed(ofMouseEventArgs &args);
-  
+
+#ifdef USE_VIDEO
+	ofVideoPlayer* getGrabberPointer() { return &grabber; }
+#else
 	ofVideoGrabber* getGrabberPointer() { return &grabber; }
+#endif
 	
 protected:
+#ifdef USE_VIDEO
+  ofVideoPlayer grabber;
+#else
   ofVideoGrabber grabber;
-  ofTexture gTexture;
-  
+#endif
+	ofTexture gTexture;
   ofBaseVideoDraws *background;
   
   
@@ -55,11 +64,16 @@ protected:
 	float number_of_tiles;
 	bool dummy_bool;
 	
+	bool do_chroma;
+	
 	bool do_bloom;
 	float bloom_amount, bloom_mix;
 	
 	bool do_chab;
 	float chab_amount;
+	
+	bool do_fisheye;
+	
 
 	
 	bool isUsingOtherFeedAsBackground;

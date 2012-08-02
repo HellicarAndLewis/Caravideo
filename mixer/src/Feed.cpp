@@ -24,7 +24,9 @@ BaseHasCanvas(),
 background_hue(0),
 background(NULL),
 imagePos(0, 0) {
+#ifndef USE_VIDEO
   grabber.setDeviceID(ID);
+#endif
 	panel->setPosition(ID*300, 0);
 }
 
@@ -35,7 +37,6 @@ Feed::~Feed() {
 
 void Feed::setup() {
 
-  grabber.initGrabber(VIDEO_WIDTH, VIDEO_HEIGHT);
 
   //we need a separate grabber texture, because we want an alpha channel
   //grabber.setPixelFormat() doesn't work properly
@@ -60,6 +61,9 @@ void Feed::setup() {
 	number_of_tiles = 1;
 	panel->addFloat("Number of Tiles", number_of_tiles).setMin(0.0).setMax(10.0);
 	
+	do_chroma = false;
+	panel->addBool("Do chroma", do_chroma);
+	
 	do_bloom = false;
 	panel->addBool("Use Bloom", do_bloom);
 	bloom_amount = 1.0;
@@ -72,8 +76,21 @@ void Feed::setup() {
 	chab_amount = 0;
 	panel->addFloat("Chromatic aberration amount", chab_amount).setMin(0.0).setMax(20.0);
 	
+	do_fisheye = false;
+	panel->addBool("Use fisheye", do_fisheye);
+	
 	panel->setColor(0.6);
 	panel->load();
+	
+#ifdef USE_VIDEO
+	ofFileDialogResult result = ofSystemLoadDialog();
+	
+	ofVideoPlayer *player = new ofVideoPlayer();
+	grabber.loadMovie(result.filePath);
+	grabber.play();
+#else	
+  grabber.initGrabber(VIDEO_WIDTH, VIDEO_HEIGHT);
+#endif	
 	
 	
 	background = new ofVideoPlayer();
@@ -155,6 +172,7 @@ void Feed::draw() {
 
   chromaShader.setUniformTexture("tex0", gTexture, 0);
   chromaShader.setUniform1f("background_hue", background_hue);
+	chromaShader.setUniform1i("do_chroma", do_chroma);
 	
 	chromaShader.setUniform1i("do_bloom", do_bloom);
 	chromaShader.setUniform1f("bloom_amount", bloom_amount);
@@ -162,6 +180,8 @@ void Feed::draw() {
 	
 	chromaShader.setUniform1i("do_chab", do_chab);
 	chromaShader.setUniform1f("chab_amount", chab_amount);
+	
+	chromaShader.setUniform1i("do_fisheye", do_fisheye);
 	
 	float scurv = ((testApp*) ofGetAppPtr())->getCurrentVolume();
 	scurv = ofMap(scurv, 0, 1, 1, 10, true);
@@ -263,6 +283,7 @@ void Feed::operator()(unsigned int bID) {
 			
 			break;
 		}
+		
 			
 	}
 }
