@@ -2,7 +2,21 @@
 
 #include "ofMain.h"
 
-class testApp : public ofBaseApp{
+#include "ofxBlackmagicGrabber.h"
+#include "ofxBlackmagicAudioReceiver.h"
+
+#include "CircularBuffer.h"
+
+#define WIDTH 720
+#define HEIGHT 576
+
+#define CBUFFER_SIZE 50000
+
+
+#include <iostream>
+#include <fstream>
+
+class testApp : public ofBaseApp, public ofxBlackmagicAudioReceiver {
 	public:
 		void setup();
 		void update();
@@ -17,4 +31,19 @@ class testApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+  
+  void audioRequested(float *output, int bufferSize, int nChannels);
+  
+  void audioReceived(void *data, int nSamples);
+  
+//  float audioBuffer[CBUFFER_SIZE];
+  CircularBuffer<float> buffer;
+  
+  deque<float> data;
+  ifstream inputf;
+
 };
+
+
+
+
