@@ -800,6 +800,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = mixerDebug;
+				SDKROOT = macosx10.6;
 				USER_HEADER_SEARCH_PATHS = "$(OF_CORE_HEADERS) src ../addons/roxlu/addons/Buttons/include ../addons/roxlu/lib/include";
 				WRAPPER_EXTENSION = app;
 			};
@@ -893,6 +894,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = mixer;
+				SDKROOT = macosx10.6;
 				USER_HEADER_SEARCH_PATHS = "$(OF_CORE_HEADERS) src ../addons/roxlu/addons/Buttons/include ../addons/roxlu/lib/include";
 				WRAPPER_EXTENSION = app;
 			};
