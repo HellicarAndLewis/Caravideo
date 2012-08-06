@@ -1,0 +1,14 @@
+prefix=/Users/whg/Downloads/libav/build/
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libavfilter
+Description: Libav video filtering library
+Version: 3.0.0
+Requires: 
+Requires.private: 
+Conflicts:
+Libs: -L${libdir} -lavfilter -framework CoreFoundation -framework VideoDecodeAcceleration -framework QuartzCore -lx264 -lmp3lame -lm -lbz2 -lz
+Libs.private: 
+Cflags: -I${includedir}

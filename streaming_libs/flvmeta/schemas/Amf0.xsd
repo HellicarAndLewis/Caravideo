@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://schemas.flvmeta.org/AMF0/1.0/"
+    elementFormDefault="qualified"
+    xmlns:amf="http://schemas.flvmeta.org/AMF0/1.0/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="number" type="amf:tNumber"/>
+  <xs:element name="boolean" type="amf:tBoolean"/>
+  <xs:element name="string" type="amf:tString"/>
+  <xs:element name="longString" type="amf:tLongString"/>
+  <xs:element name="xmlDocument" type="amf:tXmlDocument"/>
+  <xs:element name="object" type="amf:tObject"/>
+  <xs:element name="array" type="amf:tArray"/>
+  <xs:element name="null" type="amf:tNull"/>
+  <xs:element name="undefined" type="amf:tUndefined"/>
+  <xs:element name="associativeArray" type="amf:tAssociativeArray"/>
+  <xs:element name="date" type="amf:tDate"/>
+  <xs:element name="typedObject" type="amf:tTypedObject"/>
+
+  <xs:group name="tData">
+    <xs:choice>
+      <xs:element ref="amf:number"/>
+      <xs:element ref="amf:boolean"/>
+      <xs:element ref="amf:string"/>
+      <xs:element ref="amf:longString"/>
+      <xs:element ref="amf:xmlDocument"/>
+      <xs:element ref="amf:object"/>
+      <xs:element ref="amf:array"/>
+      <xs:element ref="amf:null"/>
+      <xs:element ref="amf:undefined"/>
+      <xs:element ref="amf:associativeArray"/>
+      <xs:element ref="amf:date"/>
+      <xs:element ref="amf:typedObject"/>
+    </xs:choice>
+  </xs:group>
+
+  <xs:complexType name="tMap">
+    <xs:sequence>
+      <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="amf:tData" minOccurs="1" maxOccurs="1"/>
+          </xs:sequence>
+          <xs:attribute name="name" use="required" type="amf:tString" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tNumber">
+    <xs:attribute name="value" type="xs:double" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="tBoolean">
+    <xs:attribute name="value" type="xs:boolean" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="tString">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="65535"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="tLongString">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:complexType name="tXmlDocument">
+    <xs:sequence>
+      <xs:any/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="tObject">
+    <xs:complexContent>
+      <xs:extension base="amf:tMap"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tArray">
+    <xs:group ref="amf:tData" minOccurs="0" maxOccurs="unbounded"/>
+  </xs:complexType>
+
+  <xs:complexType name="tNull"/>
+
+  <xs:complexType name="tUndefined"/>
+
+  <xs:complexType name="tAssociativeArray">
+    <xs:complexContent>
+      <xs:extension base="amf:tMap"/>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <xs:complexType name="tDate">
+    <xs:attribute name="value" type="xs:dateTime" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="tTypedObject">
+    <xs:complexContent>
+      <xs:extension base="amf:tMap">
+        <xs:attribute name="className" type="amf:tString" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+</xs:schema>
